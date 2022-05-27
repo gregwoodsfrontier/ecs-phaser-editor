@@ -25,50 +25,6 @@
             "fontSize": "3em"
         },
         {
-            "type": "Image",
-            "id": "27b0f495-3af8-4e25-92af-8601cbf27bee",
-            "label": "tank_green",
-            "components": [],
-            "texture": {
-                "key": "tank_green"
-            },
-            "x": 363,
-            "y": 229
-        },
-        {
-            "type": "Image",
-            "id": "7193e7c3-8033-427d-a7c7-b8a1bd7b2ace",
-            "label": "tank_red",
-            "components": [],
-            "texture": {
-                "key": "tank_red"
-            },
-            "x": 494,
-            "y": 258
-        },
-        {
-            "type": "Image",
-            "id": "ce8249e6-c3b2-4ac4-ba40-c66e6e229d4e",
-            "label": "treeLarge",
-            "components": [],
-            "texture": {
-                "key": "treeLarge"
-            },
-            "x": 483,
-            "y": 89
-        },
-        {
-            "type": "Image",
-            "id": "c7ca6761-ccf8-44d5-b3e2-c63e7e23e8cc",
-            "label": "treeSmall",
-            "components": [],
-            "texture": {
-                "key": "treeSmall"
-            },
-            "x": 629,
-            "y": 84
-        },
-        {
             "prefabId": "fae5d49d-c955-4560-8c43-53c1c0eb9a86",
             "id": "f3da8059-b59a-4565-9a43-c7663e126ab5",
             "unlock": [
@@ -76,9 +32,10 @@
                 "y"
             ],
             "label": "player",
+            "scope": "CLASS",
             "components": [],
-            "x": 131,
-            "y": 98
+            "x": 399,
+            "y": 280
         }
     ],
     "plainObjects": [],

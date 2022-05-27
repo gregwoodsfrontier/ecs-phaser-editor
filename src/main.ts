@@ -23,6 +23,13 @@ const game = new Phaser.Game({
     width: 800,
     height: 600,
     backgroundColor: "#2f2f2f",
+    physics: {
+		default: 'matter',
+		matter: {
+			gravity: { y: 0 },
+			debug: true
+		}
+	},
     scale: {
         mode: Phaser.Scale.ScaleModes.FIT,
         autoCenter: Phaser.Scale.Center.CENTER_BOTH

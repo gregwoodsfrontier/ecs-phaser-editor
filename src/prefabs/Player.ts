@@ -16,22 +16,34 @@ import { TextureKeys, Textures } from "../types/texture";
 
 export default class TankBlue extends Phaser.GameObjects.Sprite {
 
-	constructor(scene: Phaser.Scene, world: IWorld, x?: number, y?: number) {
+	constructor(scene: Phaser.Scene, x?: number, y?: number) {
 		super(scene, x ?? 0, y ?? 0, 'tank_blue')
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.setVisible(false)
-		this.setActive(false)
-		
-		this.world = world
-		this.start(x, y)
+		// this.setVisible(false)
+		// this.setActive(false)
+
+		this.once('ecs-world', (w: IWorld) => {
+			this.world = w;
+			this.setActive(false)
+			this.setVisible(false)
+			this.constructEnity(this.x, this.y)
+		}, this)
+
+		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this)
+		// this.start(x, y)
 		/* END-USER-CTR-CODE */
 	}
 
 	/* START-USER-CODE */
 	private world?: IWorld
 	// Write your code here.
-	start(x: number = 0, y: number = 0)
+	start()
+	{
+		
+	}
+
+	constructEnity(x: number = 0, y: number = 0)
 	{
 		if(!this.world)
 		{
@@ -39,6 +51,8 @@ export default class TankBlue extends Phaser.GameObjects.Sprite {
 		}
 
 		const tank = addEntity(this.world)
+
+		console.log(`tank: ${tank}`)
 
 		const compList = [
 			Velocity,

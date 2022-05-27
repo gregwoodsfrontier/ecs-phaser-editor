@@ -8,9 +8,9 @@ export enum Textures
 }
 
 export const TextureKeys = [
-	'tank-blue',
-	'tank-green',
-	'tank-red',
-	'tree-large',
-	'tree-small'
+	'tank_blue',
+	'tank_green',
+	'tank_red',
+	'tree_large',
+	'tree_small'
 ]

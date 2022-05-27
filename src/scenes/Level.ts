@@ -3,9 +3,18 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import Player from "../prefabs/Player";
 /* START-USER-IMPORTS */
 import { createWorld, IWorld, pipe } from "bitecs";
-import Player from "../prefabs/Player";
+import { TextureKeys } from "../types/texture";
+import { createPlayerSystem } from "../systems/PlayerSystem";
+import { createSteeringSystem } from "../systems/SteerSystem";
+import { 
+	createMatterStaticSpriteSystem,
+	createMatterPhysicsSyncSystem,
+	createMatterPhysicsSystem,
+	createMatterSpriteSystem
+ } from "../systems/Matter";
 /* END-USER-IMPORTS */
 
 export default class Level extends Phaser.Scene {
@@ -27,24 +36,16 @@ export default class Level extends Phaser.Scene {
 		text.text = "Phaser 3 + Phaser Editor 2D\nVite + TypeScript";
 		text.setStyle({ "align": "center", "fontFamily": "Arial", "fontSize": "3em" });
 
-		// tank_green
-		this.add.image(363, 229, "tank_green");
-
-		// tank_red
-		this.add.image(494, 258, "tank_red");
-
-		// treeLarge
-		this.add.image(483, 89, "treeLarge");
-
-		// treeSmall
-		this.add.image(629, 84, "treeSmall");
-
 		// player
-		const player = new Player(this, 131, 98);
+		const player = new Player(this, 399, 280);
 		this.add.existing(player);
+
+		this.player = player;
 
 		this.events.emit("scene-awake");
 	}
+
+	private player!: Player;
 
 	/* START-USER-CODE */
 	init()
@@ -78,6 +79,8 @@ export default class Level extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.initEnities()
+
 		// create MatterSpriteSystem
 		this.pipeline = pipe(
 			createMatterSpriteSystem(this.matter, TextureKeys),
@@ -91,6 +94,23 @@ export default class Level extends Phaser.Scene {
 			createMatterPhysicsSyncSystem()
 		)
 
+	}
+
+	initEnities()
+	{
+		if(this.player)
+		{
+			this.player.emit('ecs-world', this.world)
+		}
+	}
+
+	update(t: number, dt: number) {
+		if (!this.world || !this.pipeline)
+		{
+			return
+		}
+
+		this.pipeline(this.world)
 	}
 
 	/* END-USER-CODE */
