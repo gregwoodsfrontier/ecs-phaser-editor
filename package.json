@@ -14,6 +14,7 @@
     "vite": "^2.7.2"
   },
   "dependencies": {
+    "bitecs": "^0.3.38",
     "phaser": "^3.55.2",
     "phasereditor2d-launcher": "^3.31.2"
   }

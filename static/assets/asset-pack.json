@@ -5,6 +5,31 @@
                 "url": "assets/FufuSuperDino.png",
                 "type": "image",
                 "key": "FufuSuperDino"
+            },
+            {
+                "url": "assets/tank_blue.png",
+                "type": "image",
+                "key": "tank_blue"
+            },
+            {
+                "url": "assets/tank_green.png",
+                "type": "image",
+                "key": "tank_green"
+            },
+            {
+                "url": "assets/tank_red.png",
+                "type": "image",
+                "key": "tank_red"
+            },
+            {
+                "url": "assets/treeLarge.png",
+                "type": "image",
+                "key": "treeLarge"
+            },
+            {
+                "url": "assets/treeSmall.png",
+                "type": "image",
+                "key": "treeSmall"
             }
         ]
     },
