@@ -85,6 +85,10 @@ We recommend using Visual Studio Code for editing the code files.
 
 In many tutorials about Phaser Editor 2D, the JavaScript files are loaded using the Asset Pack editor. When using ViteJS this is not needed. Just use the Asset Pack editor for loading the art assets.
 
+### bitECS integration
+
+An example of an Entity prefab has been made as `prefab/Player.ts`. You can take reference of that prefab to make your own. Treat that as black-box prefab and switch off code-generation in Phaser Editor. Also `setVisible(false)` and `setActive(false)` of the sprites/images so that the rendering can be excuted through systems. 
+
 ### Scene and User Components configuration
 
 The Scenes and User Components are configured to compile to TypeScript ES modules. Also, the compilers auto-import the classes used in the generated code.
