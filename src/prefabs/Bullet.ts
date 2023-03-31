@@ -1,10 +1,15 @@
 
 // You can write more code here
 import { addComponent, addEntity, IWorld } from "bitecs";
+import { Velocity } from "../ecs-comps/Velocity";
+import { Position } from "../ecs-comps/Position";
+import { MatterSprite } from "../ecs-comps/MatterSprite";
+import { BulletTag } from "../ecs-comps/BulletTag";
 
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import { TextureKeys, Textures } from "../types/texture";
 
 export default class Bullet extends Phaser.GameObjects.Container {
 
@@ -43,13 +48,13 @@ export default class Bullet extends Phaser.GameObjects.Container {
 
 		const bullet = addEntity(this.world)
 
-		console.log(`tank: ${bullet}`)
+		console.log(`bullet: ${bullet}`)
 
 		const compList = [
 			Velocity,
 			Position,
 			MatterSprite,
-			Bullet
+			BulletTag
 		]
 
 		compList.forEach(comp => {
@@ -57,12 +62,12 @@ export default class Bullet extends Phaser.GameObjects.Container {
 			{
 				return
 			}
-			addComponent(this.world, comp, tank)
+			addComponent(this.world, comp, bullet)
 		})
 
-		MatterSprite.texture[tank] = Textures.TankBlue
-		Position.x[tank] = x
-		Position.y[tank] = y
+		MatterSprite.texture[bullet] = Textures.Guapen
+		Position.x[bullet] = x
+		Position.y[bullet] = y
 
 	}
 
