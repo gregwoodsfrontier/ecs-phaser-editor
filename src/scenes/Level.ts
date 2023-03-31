@@ -4,18 +4,7 @@
 
 import Phaser from "phaser";
 import Player from "../prefabs/Player";
-/* START-USER-IMPORTS */
-import { createWorld, IWorld, pipe } from "bitecs";
-import { TextureKeys } from "../types/texture";
-import { createPlayerSystem } from "../systems/PlayerSystem";
-import { createSteeringSystem } from "../systems/SteerSystem";
-import { 
-	createMatterStaticSpriteSystem,
-	createMatterPhysicsSyncSystem,
-	createMatterPhysicsSystem,
-	createMatterSpriteSystem
- } from "../systems/Matter";
-/* END-USER-IMPORTS */
+import Bullet from "../prefabs/Bullet";
 
 export default class Level extends Phaser.Scene {
 
@@ -33,19 +22,23 @@ export default class Level extends Phaser.Scene {
 		// text
 		const text = this.add.text(400, 436, "", {});
 		text.setOrigin(0.5, 0.5);
-		text.text = "Phaser 3 + Phaser Editor 2D\nVite + TypeScript";
+		text.text = "Press <- / -> to turn while holding\nUP/ DOWN";
 		text.setStyle({ "align": "center", "fontFamily": "Arial", "fontSize": "3em" });
 
 		// player
 		const player = new Player(this, 399, 280);
 		this.add.existing(player);
 
+		// bullet
+		const bullet = new Bullet(this, 496, 186);
+		this.add.existing(bullet);
+
 		this.player = player;
 
 		this.events.emit("scene-awake");
 	}
 
-	private player!: Player;
+	private player: Player | undefined;
 
 	/* START-USER-CODE */
 	init()

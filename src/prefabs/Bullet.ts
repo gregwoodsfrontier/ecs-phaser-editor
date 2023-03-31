@@ -5,11 +5,11 @@ import { Velocity } from "../ecs-comps/Velocity";
 import { Position } from "../ecs-comps/Position";
 import { MatterSprite } from "../ecs-comps/MatterSprite";
 import { BulletTag } from "../ecs-comps/BulletTag";
+import { Textures } from "../types/texture";
 
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import { TextureKeys, Textures } from "../types/texture";
 
 export default class Bullet extends Phaser.GameObjects.Container {
 
@@ -20,15 +20,17 @@ export default class Bullet extends Phaser.GameObjects.Container {
 		this.scaleY = 0.4920934308794387;
 
 		// guapen_1
-		const guapen_1 = scene.add.image(0, 0, "guapen");
+		const guapen_1 = scene.add.sprite(0, 0, "guapen");
+		guapen_1.scaleX = 0.5;
+		guapen_1.scaleY = 0.5;
 		this.add(guapen_1);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		this.once('ecs-world', (w: IWorld) => {
 			this.world = w;
-			this.setActive(false)
-			this.setVisible(false)
+			guapen_1.setActive(false)
+			guapen_1.setVisible(false)
 			this.constructEnity(this.x, this.y)
 		}, this)
 		/* END-USER-CTR-CODE */
@@ -38,7 +40,7 @@ export default class Bullet extends Phaser.GameObjects.Container {
 
 	// Write your code here.
 	private world?: IWorld
-	
+
 	constructEnity(x: number = 0, y: number = 0)
 	{
 		if(!this.world)

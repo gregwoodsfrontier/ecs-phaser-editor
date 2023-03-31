@@ -19,7 +19,7 @@
             "y": 436,
             "originX": 0.5,
             "originY": 0.5,
-            "text": "Phaser 3 + Phaser Editor 2D\nVite + TypeScript",
+            "text": "Press <- / -> to turn while holding\nUP/ DOWN",
             "align": "center",
             "fontFamily": "Arial",
             "fontSize": "3em"
@@ -36,6 +36,19 @@
             "components": [],
             "x": 399,
             "y": 280
+        },
+        {
+            "prefabId": "98a93c74-91ee-4013-9ac3-55767f056d40",
+            "id": "793fe38b-93c4-4c71-9835-f4bc5bbca1ec",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "bullet",
+            "components": [],
+            "x": 496,
+            "y": 186,
+            "nestedPrefabs": []
         }
     ],
     "plainObjects": [],

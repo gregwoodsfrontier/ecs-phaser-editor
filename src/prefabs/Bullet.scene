@@ -19,13 +19,15 @@
             "scaleY": 0.4920934308794387,
             "list": [
                 {
-                    "type": "Image",
+                    "type": "Sprite",
                     "id": "fd14f6fa-360a-4a4b-8223-8d80ca799b49",
                     "label": "guapen_1",
                     "components": [],
                     "texture": {
                         "key": "guapen"
-                    }
+                    },
+                    "scaleX": 0.5,
+                    "scaleY": 0.5
                 }
             ]
         }
