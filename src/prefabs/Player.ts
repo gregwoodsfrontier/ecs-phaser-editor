@@ -1,9 +1,5 @@
 
 // You can write more code here
-
-/* START OF COMPILED CODE */
-import Phaser from "phaser";
-/* START-USER-IMPORTS */
 import { addComponent, addEntity, IWorld } from "bitecs";
 import { Velocity } from "../ecs-comps/Velocity";
 import { Position } from "../ecs-comps/Position";
@@ -11,7 +7,13 @@ import { Rotation } from "../ecs-comps/Rotation";
 import { MatterSprite } from "../ecs-comps/MatterSprite";
 import { Input } from "../ecs-comps/Input";
 import { Player } from "../ecs-comps/Player";
-import { TextureKeys, Textures } from "../types/texture";
+import { Textures } from "../types/texture";
+import { Scale } from "../ecs-comps/Scale";
+
+/* START OF COMPILED CODE */
+import Phaser from "phaser";
+/* START-USER-IMPORTS */
+
 /* END-USER-IMPORTS */
 
 export default class TankBlue extends Phaser.GameObjects.Sprite {
@@ -59,6 +61,7 @@ export default class TankBlue extends Phaser.GameObjects.Sprite {
 			Position,
 			Rotation,
 			MatterSprite,
+			Scale,
 			Input,
 			Player
 		]
@@ -74,6 +77,9 @@ export default class TankBlue extends Phaser.GameObjects.Sprite {
 		MatterSprite.texture[tank] = Textures.TankBlue
 		Position.x[tank] = x
 		Position.y[tank] = y
+
+		Scale.x[tank] = 1.2
+		Scale.y[tank] = 1.2
 
 	}
 

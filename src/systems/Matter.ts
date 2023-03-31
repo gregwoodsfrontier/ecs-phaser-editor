@@ -6,11 +6,12 @@ import { Position } from '../ecs-comps/Position'
 import { MatterSprite, MatterStaticSprite } from '../ecs-comps/MatterSprite'
 import { Rotation } from '../ecs-comps/Rotation'
 import { Velocity } from '../ecs-comps/Velocity'
+import { Scale } from '../ecs-comps/Scale'
 
 const matterSpritesById = new Map<number, Phaser.Physics.Matter.Sprite>()
 
 export function createMatterSpriteSystem(matter: Phaser.Physics.Matter.MatterPhysics, textures: string[]) {
-	const query = defineQuery([Position, MatterSprite])
+	const query = defineQuery([Position, MatterSprite, Scale])
 
 	// create enter and exit queries
 	const onQueryEnter = enterQuery(query)
@@ -24,7 +25,11 @@ export function createMatterSpriteSystem(matter: Phaser.Physics.Matter.MatterPhy
 			const x = Position.x[id]
 			const y = Position.y[id]
 			const textureId = MatterSprite.texture[id]
-			const sprite = matter.add.sprite(x, y, textures[textureId])
+			const scale = {
+				x: Scale.x[id],
+				y: Scale.y[id]
+			}
+			const sprite = matter.add.sprite(x, y, textures[textureId]).setScale(scale.x, scale.y)
 
 			matterSpritesById.set(id, sprite)
 		}

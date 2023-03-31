@@ -1,4 +1,9 @@
 // You can write more code here
+import { createWorld, IWorld, pipe } from "bitecs";
+import { createMatterPhysicsSyncSystem, createMatterPhysicsSystem, createMatterSpriteSystem, createMatterStaticSpriteSystem } from "../systems/Matter";
+import { createPlayerSystem } from "../systems/PlayerSystem";
+import { createSteeringSystem } from "../systems/SteerSystem";
+import { TextureKeys } from "../types/texture";
 
 /* START OF COMPILED CODE */
 
